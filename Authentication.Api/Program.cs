@@ -27,6 +27,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSwaggerGen(options =>
+{
+    var filePath = Path.Combine(AppContext.BaseDirectory, "Authentication.Api.xml");
+    options.IncludeXmlComments(filePath);
+});
+
 builder.Services.AddDbContext<AuthenticationDbContext>(options
     => options.UseSqlServer(builder.Configuration
         .GetConnectionString("DefaultConnection")));
