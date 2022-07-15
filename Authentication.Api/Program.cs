@@ -72,7 +72,7 @@ builder.Services.AddIdentityServer()
 builder.Services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
     .AddIdentityServerAuthentication(options =>
     {
-        options.Authority = "https://localhost:7179";
+        options.Authority = "https://authentication-api:5001";
     });
 
 var app = builder.Build();
