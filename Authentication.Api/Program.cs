@@ -33,7 +33,7 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(filePath);
 });
 
-var connectionString = Environment.GetEnvironmentVariable("ConnectionString");
+var connectionString = "Server=DESKTOP-KP79CHK;Database=UsersDb;Trusted_Connection=True;MultipleActiveResultSets=true";
 
 builder.Services.AddDbContext<AuthenticationDbContext>(options
     => options.UseSqlServer(connectionString));
@@ -73,7 +73,7 @@ builder.Services.AddIdentityServer()
 builder.Services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
     .AddIdentityServerAuthentication(options =>
     {
-        options.Authority = "https://authentication-api:5001";
+        options.Authority = "https://localhost:7179";
     });
 
 var app = builder.Build();
