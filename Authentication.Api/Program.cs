@@ -73,7 +73,7 @@ builder.Services.AddIdentityServer()
 builder.Services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
     .AddIdentityServerAuthentication(options =>
     {
-        options.Authority = "https://authentication-api:5001";
+        options.Authority = "https://authentication-api";
     });
 
 var app = builder.Build();
